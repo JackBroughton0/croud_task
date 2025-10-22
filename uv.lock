@@ -440,8 +440,12 @@ source = { virtual = "." }
 dependencies = [
     { name = "boto3" },
     { name = "openai" },
-    { name = "pytest" },
     { name = "python-dotenv" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
     { name = "ruff" },
 ]
 
@@ -449,8 +453,12 @@ dependencies = [
 requires-dist = [
     { name = "boto3", specifier = ">=1.40.55" },
     { name = "openai", specifier = ">=2.6.0" },
-    { name = "pytest", specifier = ">=8.4.2" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=8.4.2" },
     { name = "ruff", specifier = ">=0.14.1" },
 ]
 
