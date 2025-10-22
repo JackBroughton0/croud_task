@@ -1,6 +1,6 @@
 import pytest
 
-from sentiment_analyzer.sentiment_analyzer import SentimentAnalyzer
+from sentiment_analyzer.base import SentimentAnalyzer
 
 
 @pytest.fixture(scope="module")
