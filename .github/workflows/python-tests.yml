@@ -1,0 +1,36 @@
+name: Sentiment Analyzer CI
+
+on:
+  push:
+    # Can add branches to these lists as needed
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies (dev)
+        run: uv sync --dev
+
+      - name: Run tests
+        # Use the verbose flag for more detailed output
+        run: uv run pytest -v
