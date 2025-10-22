@@ -197,7 +197,7 @@ class SentimentAnalyzer:
         """
         # If OpenAI analysis failed, return base results
         if openai_score is None or openai_label is None:
-            # TODO implement logging
+            # TODO implement logging
             print("OpenAI analysis failed, using base results.")
             return base_score, base_label
         combined_score = round((base_score + openai_score) / 2.0, 2)
@@ -272,7 +272,8 @@ class SentimentAnalyzer:
         label = self._calculate_label(score)
         return score, label
 
-    def _emoji_signal(self, text: str) -> int:
+    @staticmethod
+    def _emoji_signal(text: str) -> int:
         """
         A simple implementation of an emoji weighting that counts
         positive and negative emojis and calculates the difference.
@@ -287,7 +288,8 @@ class SentimentAnalyzer:
         neg = {"😡", "🤮", "💀", "👎", "😤", "😞", "😢", "😭", "🤬", "😠", "💩", "🤕"}
         return sum(text.count(e) for e in pos) - sum(text.count(e) for e in neg)
 
-    def preprocess_text(self, text: str) -> str:
+    @staticmethod
+    def preprocess_text(text: str) -> str:
         """Remove excess whitespace from the string to format the text.
 
         Args:
