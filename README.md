@@ -68,8 +68,8 @@ CI/CD tests are automatically triggered on push and pull requests via GitHub Act
 
 2) **Secure Secrets Management**
 
-    Replace ```.env``` usage with AWS Secrets Manager
-    Use IAM roles for AWS Comprehend authentication (no hardcoded credentials)
+    - Replace ```.env``` usage with AWS Secrets Manager
+    - Use IAM roles for AWS Comprehend authentication (no hardcoded credentials)
 
 3) **Reliability and Retries**
 
